@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.conf.js",
-    "postinstall": "npm run build"
+    "install": "npm run build"
   },
   "peerDependencies": {
     "react": "16.9.0"
