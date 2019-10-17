@@ -159,6 +159,15 @@ function stringifyQueryString(obj) {
     .reduce((a, b) => `${a}${b}=${encodeURIComponent(obj[b])}&`, '?')
     .slice(0, -1);
 }
+
+export function toFarsiNumber(n) {
+  const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+  if (n || n === 0) {
+    return n.toString().replace(/\d/g, x => farsiDigits[x]);
+  }
+}
+
 const chartColors = [
   // Cyan
   '#42d4f4',
