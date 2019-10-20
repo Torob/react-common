@@ -3,7 +3,7 @@ import { StyleSheet, css } from 'aphrodite';
 import { Row, Col } from 'react-bootstrap';
 import { FiX, FiAlertTriangle, FiAlertOctagon, FiAlertCircle } from 'react-icons/fi';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
-import { colors } from './torobStyles/colors';
+import { colors } from './torobStyles';
 
 const Toast = ({ children, variant, onDismiss, rounded = true }) => {
   const renderVariantIcon = variant => {

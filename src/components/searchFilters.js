@@ -2,7 +2,7 @@ import React from 'react';
 import { InputGroup, Col, Row, Button, Form, FormControl } from 'react-bootstrap';
 import Select from 'react-select';
 import { StyleSheet, css } from 'aphrodite';
-import { bgStyles } from './torobStyles/colors';
+import { bgStyles } from './torobStyles';
 import { StaticCategorySelector } from './categorySelector';
 
 const SearchFilters = ({

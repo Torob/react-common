@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiShoppingCart, FiMessageSquare, FiUser, FiGitMerge } from 'react-icons/fi';
 import { StyleSheet, css } from 'aphrodite';
-import { bgStyles } from './torobStyles/colors';
+import { bgStyles } from './torobStyles';
 import { Nav, Col, Row } from 'react-bootstrap';
 
 const MainNavigation = ({ activePane }) => (
