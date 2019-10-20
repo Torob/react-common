@@ -4,6 +4,7 @@
 
 ****
 # Torob common react components
+[![Build Status](https://travis-ci.org/Torob/react-common.svg?branch=master)](https://travis-ci.org/Torob/react-common)
 
 As we are moving forward to unifying our UI components in different internal panels, we decided to create this repository and put all the components that might be reused across panels.
 
