@@ -15,10 +15,10 @@ const withTitle = ({ component: Component, title }) => {
   return class Title extends React.Component {
     render() {
       return (
-        <React.Fragment>
+        <>
           <TitleComponent title={title} />
           <Component {...this.props} />
-        </React.Fragment>
+        </>
       );
     }
   };

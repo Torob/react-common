@@ -42,7 +42,7 @@ class InputDate extends Component {
   render() {
     const { id, value, onChange, disabled, error } = this.props;
     return (
-      <React.Fragment>
+      <>
         <Form.Control
           type="text"
           id={id}
@@ -58,7 +58,7 @@ class InputDate extends Component {
             {error}
           </Form.Control.Feedback>
         ) : null}
-      </React.Fragment>
+      </>
     );
   }
 }
