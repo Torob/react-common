@@ -9,7 +9,6 @@
   "license": "MIT",
   "repository": "transitive-bullshit/react-modern-library-boilerplate",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
