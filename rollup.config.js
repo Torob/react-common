@@ -2,8 +2,8 @@ import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import resolve from 'rollup-plugin-node-resolve';
 import url from 'rollup-plugin-url';
+import replace from 'rollup-plugin-replace';
 import json from 'rollup-plugin-json';
 
 import pkg from './package.json';
@@ -16,9 +16,17 @@ export default {
       format: 'cjs',
       sourcemap: true,
     },
+    {
+      file: pkg.module,
+      format: 'es',
+      sourcemap: true,
+    },
   ],
   plugins: [
     json(),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
     external(),
     postcss({
       modules: true,
@@ -35,7 +43,6 @@ export default {
       ignore: ['node_modules/**'],
       runtimeHelpers: true,
     }),
-    resolve({ preferBuiltins: true }),
     commonjs({
       // exclude: [
       //   'node_modules/react-dom/**'
