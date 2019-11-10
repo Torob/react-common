@@ -1,12 +1,20 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `رابط کاربری پنل‌های ترب`,
+    description: `توصیه میشود که برای ایجاد پنل های ترب از کامپوننت های موجود در این کتابخانه استفاده شود تا کاربران ترب تجربه کاربری یکسانی داشته باشند`,
     author: `@gatsbyjs`,
   },
   pathPrefix: "/react-common",
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `componentPages`,
+        path: `${__dirname}/component-pages`,
+      },
+    },
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
