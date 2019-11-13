@@ -16,9 +16,11 @@ const DynamicCategorySelector = ({ onChange }) => {
     return <Select isRtl placeholder={'خطا!'} options={[]} isDisabled={true} />;
   }
 
-  const categories = resource.data.results.map(cat => {
-    return { value: cat.id, label: cat.title };
-  });
+  const categories = resource.data.results
+    ? resource.data.results.map(cat => {
+        return { value: cat.id, label: cat.title };
+      })
+    : [];
 
   return (
     <Select

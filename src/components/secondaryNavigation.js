@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { StyleSheet, css } from 'aphrodite';
 import { DynamicShopSelector } from './shopSelector';
 
-const SecondaryNavigation = ({ history, location }) => {
+const SecondaryNavigation = ({ history, location, disableShops }) => {
+  console.log('hihi', location, history);
   const handleNavOnClick = e => {
     switch (e) {
       case '/search':
@@ -24,7 +24,7 @@ const SecondaryNavigation = ({ history, location }) => {
 
   return (
     <div className={css(styles.secondarySidebarSticky)}>
-      <DynamicShopSelector userShops />
+      {!disableShops ? <DynamicShopSelector userShops /> : null}
 
       <Nav variant="pills" className="flex-column" activeKey={activeKey} onSelect={handleNavOnClick}>
         <Nav.Item className={css(styles.navItem)}>
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withRouter(SecondaryNavigation);
+export default SecondaryNavigation;
