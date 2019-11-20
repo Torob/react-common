@@ -4,7 +4,7 @@ import { useAuth } from '../providers/auth';
 import useTorobAPI from '../hooks/useTorobAPI';
 import urls from '../urls';
 
-const DynamicShopSelector = ({ userShops, onChange }) => {
+const DynamicShopSelector = ({ userShops, onChange: cbOnChange }) => {
   if (userShops) {
     const { user, activeInstance, setActiveInstance } = useAuth();
     let shops = user.user.panel_accesses[0].objects.map(shop => ({ value: shop.instance_id, label: shop.name }));
@@ -13,7 +13,10 @@ const DynamicShopSelector = ({ userShops, onChange }) => {
         isRtl
         placeholder={'همه'}
         options={shops}
-        onChange={e => setActiveInstance({ ...activeInstance, instanceId: e.value, instanceName: e.label })}
+        onChange={e => {
+          setActiveInstance({ ...activeInstance, instanceId: e.value, instanceName: e.label });
+          cbOnChange && cbOnChange();
+        }}
         value={{ value: activeInstance.instanceId, label: activeInstance.instanceName }}
       />
     );
