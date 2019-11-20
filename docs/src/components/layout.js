@@ -35,12 +35,33 @@ const Layout = ({ children, pathName }) => {
           }
         }
       }
+      allMdx {
+        edges {
+          node {
+            frontmatter {
+              title
+              path
+              date(formatString: "MMMM DD, YYYY")
+            }
+          }
+        }
+      }
     }
   `)
-  const items = data.allMarkdownRemark.edges.map(p => ({
-    title: p.node.frontmatter.title,
-    slug: p.node.fields.slug,
-  }))
+  let items = []
+  data.allMarkdownRemark.edges.forEach(p => {
+    items.push({
+      title: p.node.frontmatter.title,
+      slug: p.node.fields.slug,
+    })
+  })
+  data.allMdx.edges.map(p => {
+    items.push({
+      title: p.node.frontmatter.title,
+      slug: p.node.frontmatter.path,
+    })
+  })
+
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
