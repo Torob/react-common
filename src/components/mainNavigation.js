@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FiShoppingCart, FiMessageSquare, FiUser, FiGitMerge } from 'react-icons/fi';
 import { StyleSheet, css } from 'aphrodite';
 import { bgStyles } from './torobStyles';
@@ -38,6 +39,14 @@ const MainNavigation = ({ activePane }) => (
     </Row>
   </div>
 );
+
+MainNavigation.propTypes = {
+  activePane: PropTypes.oneOf(['crowdsource', 'shop-panel', 'ticketing']),
+};
+
+MainNavigation.defaultProps = {
+  activePane: 'crowdsource',
+};
 
 const styles = StyleSheet.create({
   mainSidebarStick: {
