@@ -22,7 +22,7 @@ const Layout = ({ children, pathName }) => {
           title
         }
       }
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             id
@@ -37,7 +37,7 @@ const Layout = ({ children, pathName }) => {
       }
     }
   `)
-  const items = data.allMarkdownRemark.edges.map(p => ({
+  const items = data.allMdx.edges.map(p => ({
     title: p.node.frontmatter.title,
     slug: p.node.fields.slug,
   }))

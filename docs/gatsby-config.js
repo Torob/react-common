@@ -14,7 +14,6 @@ module.exports = {
         path: `${__dirname}/component-pages`,
       },
     },
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,6 +22,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-mdx`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
