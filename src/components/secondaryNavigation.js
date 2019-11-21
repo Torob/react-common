@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 import { StyleSheet, css } from 'aphrodite';
 import { DynamicShopSelector } from './shopSelector';
 
-const SecondaryNavigation = ({ history, location, disableShops }) => {
+const SecondaryNavigation = ({ history, location, disableShops, onShopSelect }) => {
   console.log('hihi', location, history);
   const handleNavOnClick = e => {
     switch (e) {
@@ -24,7 +24,7 @@ const SecondaryNavigation = ({ history, location, disableShops }) => {
 
   return (
     <div className={css(styles.secondarySidebarSticky)}>
-      {!disableShops ? <DynamicShopSelector userShops /> : null}
+      {!disableShops ? <DynamicShopSelector userShops onChange={onShopSelect} /> : null}
 
       <Nav variant="pills" className="flex-column" activeKey={activeKey} onSelect={handleNavOnClick}>
         <Nav.Item className={css(styles.navItem)}>
