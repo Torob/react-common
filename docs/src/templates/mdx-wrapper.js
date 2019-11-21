@@ -1,5 +1,9 @@
 import { MDXProvider } from "@mdx-js/react"
-import { Divider } from "react-common"
+import {
+  Divider,
+  StaticCategorySelector,
+  StaticShopSelector,
+} from "react-common"
 import CodeBlock from "../components/CodeBlock"
 import React from "react"
 
@@ -10,6 +14,8 @@ const getMode = (className = "") => {
 
 const shortcodes = {
   Divider,
+  StaticCategorySelector,
+  StaticShopSelector,
   pre: props =>
     React.isValidElement(props.children) ? (
       <CodeBlock

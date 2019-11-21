@@ -35,17 +35,6 @@ const Layout = ({ children, pathName }) => {
           }
         }
       }
-      allMdx {
-        edges {
-          node {
-            frontmatter {
-              title
-              path
-              date(formatString: "MMMM DD, YYYY")
-            }
-          }
-        }
-      }
     }
   `)
   const items = data.allMdx.edges.map(p => ({
