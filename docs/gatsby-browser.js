@@ -1,7 +1,4 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import { wrapRootElement as wrap } from "./src/templates/mdx-wrapper"
+require("prismjs/themes/prism-solarizedlight.css")
 
-// You can delete this file if you're not using it
+export const wrapRootElement = wrap

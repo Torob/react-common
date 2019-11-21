@@ -4,9 +4,9 @@ import { useAuth } from '../providers/auth';
 import useTorobAPI from '../hooks/useTorobAPI';
 import urls from '../urls';
 
+
 const DynamicShopSelector = ({ userShops, onChange: cbOnChange }) => {
   if (userShops) {
-    const { user, activeInstance, setActiveInstance } = useAuth();
     let shops = user.user.panel_accesses[0].objects.map(shop => ({ value: shop.instance_id, label: shop.name }));
     return (
       <Select
@@ -21,14 +21,6 @@ const DynamicShopSelector = ({ userShops, onChange: cbOnChange }) => {
       />
     );
   } else {
-    const [resource] = useTorobAPI(
-      {
-        method: 'GET',
-        url: urls.common.categoriesList(),
-      },
-      []
-    );
-
     if (resource.isError) {
       return <Select isRtl placeholder={'خطا!'} options={[]} isDisabled={true} />;
     }

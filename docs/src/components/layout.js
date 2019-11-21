@@ -22,7 +22,7 @@ const Layout = ({ children, pathName }) => {
           title
         }
       }
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             id
@@ -48,19 +48,10 @@ const Layout = ({ children, pathName }) => {
       }
     }
   `)
-  let items = []
-  data.allMarkdownRemark.edges.forEach(p => {
-    items.push({
-      title: p.node.frontmatter.title,
-      slug: p.node.fields.slug,
-    })
-  })
-  data.allMdx.edges.map(p => {
-    items.push({
-      title: p.node.frontmatter.title,
-      slug: p.node.frontmatter.path,
-    })
-  })
+  const items = data.allMdx.edges.map(p => ({
+    title: p.node.frontmatter.title,
+    slug: p.node.fields.slug,
+  }))
 
   return (
     <>
