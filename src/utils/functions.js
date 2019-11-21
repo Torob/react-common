@@ -1,4 +1,4 @@
-function toFarsiNumber(n) {
+export function toFarsiNumber(n) {
   const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
 
   if (n || n === 0) {
