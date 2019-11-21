@@ -1,0 +1,16 @@
+---
+title: مسیر پرایوت
+---
+
+برای محدود کردن دسترسی به یک مسیر، بجای استفاده از `Route` از پکیج `react-router-dom`، می توانید از این کامپوننت استفاده کنید
+
+```
+import { PrivateRoute } from '@torob/react-common'
+
+<PrivateRoute
+  path="/private"
+  component={RestrictedComponent}
+  isLoading={false}
+  isAuthenticated={true}
+/>
+```

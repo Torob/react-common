@@ -1,0 +1,16 @@
+---
+title: تیتر دینامیک
+---
+
+شما میتوانید با استفاده از کامپوننت `withTitle` که درواقع یک `HOC` هست، برای تعریف تیتر های دینامیک برای هر صفحه استفاده کنید.
+
+این `HOC` رو بر روی کامپوننت های `container` یا `page` استفاده کنید.
+
+
+```
+import { withTitle } from '@torob/react-common';
+
+const ExampleContainer = () => ('')
+
+export default withTitle({component: ExampleContainer, title: 'custom title'});
+```
