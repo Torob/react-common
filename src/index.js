@@ -17,6 +17,7 @@ import ImageHolder from './components/imageHolder';
 import { useNotif, NotificationProvider } from './hooks/useNotif';
 import useTorobAPI from './hooks/useTorobAPI';
 import { AuthProvider, useAuth } from './providers/auth';
+import TorobPagination from './components/pagination';
 
 const DynamicTitle = { TitleComponent, withTitle };
 const hooks = { useNotif, useTorobAPI, useAuth };
@@ -35,7 +36,9 @@ export {
   SearchInfo,
   Toast,
   FullscreenDialog,
-  colors, bgStyles, btnStyles,
+  colors,
+  bgStyles,
+  btnStyles,
   DynamicCategorySelector,
   StaticCategorySelector,
   DynamicShopSelector,
@@ -43,4 +46,5 @@ export {
   ImageHolder,
   Providers,
   hooks,
+  TorobPagination,
 };

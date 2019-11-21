@@ -41,6 +41,7 @@
     "react-overlays": "^2.1.0",
     "react-router-dom": "^5.1.2",
     "react-select": "^3.0.8",
+    "react-ultimate-pagination": "^1.2.0",
     "reactstrap": "^8.0.1",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
