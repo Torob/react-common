@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import ContentLoader from 'react-content-loader';
 
 const ImageHolder = ({ src, width, height, style }) => {
@@ -50,6 +51,20 @@ const ImageHolder = ({ src, width, height, style }) => {
       }}
     />
   );
+};
+
+ImageHolder.propTypes = {
+  src: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  style: PropTypes.object,
+};
+
+ImageHolder.defaultProps = {
+  src: '',
+  width: 100,
+  height: 100,
+  style: {},
 };
 
 export default ImageHolder;

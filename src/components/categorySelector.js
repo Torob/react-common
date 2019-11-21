@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
 import useTorobAPI from '../hooks/useTorobAPI';
 import urls from '../urls';
 
@@ -34,6 +35,14 @@ const DynamicCategorySelector = ({ onChange }) => {
   );
 };
 
+DynamicCategorySelector.propTypes = {
+  onChange: PropTypes.func,
+};
+
+DynamicCategorySelector.defaultProps = {
+  onChange: () => undefined,
+};
+
 const StaticCategorySelector = ({ isLoading, isError, categories, onChange }) => {
   if (isError) {
     return <Select isRtl placeholder={'خطا!'} options={[]} isDisabled={true} />;
@@ -49,6 +58,20 @@ const StaticCategorySelector = ({ isLoading, isError, categories, onChange }) =>
   return (
     <Select isRtl placeholder={'همه'} options={categories} isLoading={isLoading} isDisabled={isLoading} onChange={onChange} />
   );
+};
+
+StaticCategorySelector.propTypes = {
+  isLoading: PorpTypes.bool,
+  isError: PorpTypes.bool,
+  categories: PropTypes.array,
+  onChange: PropTypes.func,
+};
+
+StaticCategorySelector.defaultProps = {
+  isLoading: true,
+  isError: false,
+  categories: [],
+  onChange: () => undefined,
 };
 
 export { DynamicCategorySelector, StaticCategorySelector };

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 const TitleComponent = ({ title }) => {
@@ -8,6 +9,14 @@ const TitleComponent = ({ title }) => {
       <title>{title ? title + ' | ' + defaultTitle : defaultTitle}</title>
     </Helmet>
   );
+};
+
+TitleComponent.propTypes = {
+  title: PropTypes.string,
+};
+
+TitleComponent.defaultProps = {
+  title: 'خانه',
 };
 
 // withTitle function

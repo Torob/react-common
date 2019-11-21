@@ -1,7 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
 const CategoryTag = ({ category }) => <span className={css(styles.categoryTag)}>{category}</span>;
+
+CategoryTag.propTypes = {
+  category: PropTypes.string,
+};
+
+CategoryTag.defaultProps = {
+  category: '',
+};
 
 const styles = StyleSheet.create({
   categoryTag: {

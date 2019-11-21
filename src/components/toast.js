@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 import { Row, Col } from 'react-bootstrap';
 import { FiX, FiAlertTriangle, FiAlertOctagon, FiAlertCircle } from 'react-icons/fi';
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 import { colors } from './torobStyles';
 
-const Toast = ({ children, variant, onDismiss, rounded = true }) => {
+const Toast = ({ children, variant, onDismiss, rounded }) => {
   const renderVariantIcon = variant => {
     switch (variant) {
       case 'error':
@@ -33,6 +34,20 @@ const Toast = ({ children, variant, onDismiss, rounded = true }) => {
       </Col>
     </Row>
   );
+};
+
+Toast.propTypes = {
+  children: PropTypes.node,
+  variant: PropTypes.oneOf(['error', 'warning', 'hint', 'success']),
+  onDismiss: PropTypes.func,
+  rounded: PropTypes.bool,
+};
+
+Toast.defaultProps = {
+  children: undefined,
+  variant: undefined,
+  onDismiss: () => undefined,
+  rounded: true,
 };
 
 const styles = StyleSheet.create({

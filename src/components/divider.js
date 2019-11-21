@@ -1,8 +1,17 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
+import PropTypes from 'prop-types';
 
 const Divider = ({ orientation }) => {
   return <div className={css(orientation === 'vertical' ? styles.vertical : styles.horizontal)}></div>;
+};
+
+Divider.propTypes = {
+  orientation: PropTypes.bool,
+};
+
+Divider.defaultProps = {
+  orientation: 'vertical',
 };
 
 const styles = StyleSheet.create({

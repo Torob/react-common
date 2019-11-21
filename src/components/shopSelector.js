@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { useAuth } from '../providers/auth';
 import useTorobAPI from '../hooks/useTorobAPI';
 import urls from '../urls';
-
 
 const DynamicShopSelector = ({ userShops, onChange: cbOnChange }) => {
   if (userShops) {
@@ -40,6 +40,16 @@ const DynamicShopSelector = ({ userShops, onChange: cbOnChange }) => {
   }
 };
 
+DynamicShopSelector.propTypes = {
+  userShops: PropTypes.array,
+  onChange: PropTypes.func,
+};
+
+DynamicShopSelector.defaultProps = {
+  userShops: [],
+  onChange: () => undefined,
+};
+
 const StaticShopSelector = ({ isLoading, isError, shops, onChange }) => {
   if (isError) {
     return <Select isRtl placeholder={'خطا!'} options={[]} isDisabled={true} />;
@@ -62,6 +72,20 @@ const StaticShopSelector = ({ isLoading, isError, shops, onChange }) => {
       onChange={e => onChange(e.value)}
     />
   );
+};
+
+StaticShopSelector.propTypes = {
+  isLoading: PropTypes.bool,
+  isError: PropTypes.bool,
+  shops: PropTypes.array,
+  onChange: PropTypes.func,
+};
+
+StaticShopSelector.defaultProps = {
+  isLoading: false,
+  isError: false,
+  shops: [],
+  onChange: () => undefined,
 };
 
 export { DynamicShopSelector, StaticShopSelector };

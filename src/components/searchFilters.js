@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { InputGroup, Col, Row, Button, Form, FormControl } from 'react-bootstrap';
 import Select from 'react-select';
 import { StyleSheet, css } from 'aphrodite';
@@ -93,6 +94,26 @@ const SearchFilters = ({
       </Form.Group>
     </Row>
   );
+};
+
+SearchFilters.propTypes = {
+  onSubmit: PropTypes.func,
+  values: PropTypes.object,
+  setParams: PropTypes.func,
+  isDetails: PropTypes.bool,
+  categories: PropTypes.object,
+};
+
+SearchFilters.defaultProps = {
+  onSubmit: () => undefined,
+  values: {
+    price__gt: 0,
+    price__lt: 0,
+    query: '',
+  },
+  setParams: () => undefined,
+  isDetails: false,
+  categories: { isLoading: false, isError: false, data: undefined },
 };
 
 const styles = StyleSheet.create({

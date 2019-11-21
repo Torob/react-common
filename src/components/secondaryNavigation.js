@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Nav } from 'react-bootstrap';
 import { StyleSheet, css } from 'aphrodite';
 import { DynamicShopSelector } from './shopSelector';
@@ -39,6 +40,18 @@ const SecondaryNavigation = ({ history, location, disableShops, onShopSelect }) 
       </Nav>
     </div>
   );
+};
+
+SecondaryNavigation.propTypes = {
+  // history
+  // location
+  disableShops: PropTypes.bool,
+  onShopSelect: PropTypes.func,
+};
+
+SecondaryNavigation.defaultProps = {
+  disableShops: false,
+  onShopSelect: () => undefined,
 };
 
 const styles = StyleSheet.create({

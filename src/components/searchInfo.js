@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { FiChevronDown } from 'react-icons/fi';
 import { Col, Row, Dropdown } from 'react-bootstrap';
 import { StyleSheet, css } from 'aphrodite';
@@ -107,6 +108,18 @@ const SearchInfo = ({ onChange, action, actOnChange }) => {
       <Col md={3}>{'۲۰ کالا از ۱۰۲۵'}</Col>
     </Row>
   );
+};
+
+SearchFilters.propTypes = {
+  onChange: PropTypes.func,
+  action: PropTypes.func,
+  actOnChange: PropTypes.bool,
+};
+
+SearchFilters.defaultProps = {
+  onChange: () => undefined, // state setter
+  action: () => undefined, // actual callback function
+  actOnChange: false,
 };
 
 const styles = StyleSheet.create({
