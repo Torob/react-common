@@ -4,7 +4,7 @@ import { Pagination } from 'react-bootstrap';
 import { css, StyleSheet } from 'aphrodite';
 import { createUltimatePagination, ITEM_TYPES } from 'react-ultimate-pagination';
 
-import { toFarsiNumber } from '../utils';
+import { toFarsiNumber } from '../utils/functions';
 
 const WrapperComponent = ({ children }) => <Pagination className={css(styles.paginationWrapper)}>{children}</Pagination>;
 

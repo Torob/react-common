@@ -5,8 +5,8 @@ import Cookies from 'universal-cookie';
 
 window.$ = jquery;
 window.jQuery = jquery;
-require('./lib/persian-datepicker/persianDatepicker.js');
-require('./lib/persian-datepicker/persianDatepicker-default.css');
+require('../components/DatePicker/persian-datepicker/persianDatepicker.js');
+require('../components/DatePicker/persian-datepicker/persianDatepicker-default.css');
 
 function humanDate(jd, format = 'd m y') {
   const parts = jd.split('-');
@@ -160,14 +160,6 @@ function stringifyQueryString(obj) {
     .slice(0, -1);
 }
 
-export function toFarsiNumber(n) {
-  const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-
-  if (n || n === 0) {
-    return n.toString().replace(/\d/g, x => farsiDigits[x]);
-  }
-}
-
 const chartColors = [
   // Cyan
   '#42d4f4',
@@ -203,14 +195,6 @@ const chartColors = [
   '#a9a9a9',
 ];
 
-function toFarsiNumber(n) {
-  const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-
-  if (n || n === 0) {
-    return n.toString().replace(/\d/g, x => farsiDigits[x]);
-  }
-}
-
 export {
   humanDate,
   humanDate2,
@@ -229,5 +213,4 @@ export {
   parseQueryString,
   chartColors,
   getGregorianDate,
-  toFarsiNumber,
 };

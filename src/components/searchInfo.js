@@ -110,13 +110,13 @@ const SearchInfo = ({ onChange, action, actOnChange }) => {
   );
 };
 
-SearchFilters.propTypes = {
+SearchInfo.propTypes = {
   onChange: PropTypes.func,
   action: PropTypes.func,
   actOnChange: PropTypes.bool,
 };
 
-SearchFilters.defaultProps = {
+SearchInfo.defaultProps = {
   onChange: () => undefined, // state setter
   action: () => undefined, // actual callback function
   actOnChange: false,

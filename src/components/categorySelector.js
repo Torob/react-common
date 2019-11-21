@@ -61,8 +61,8 @@ const StaticCategorySelector = ({ isLoading, isError, categories, onChange }) =>
 };
 
 StaticCategorySelector.propTypes = {
-  isLoading: PorpTypes.bool,
-  isError: PorpTypes.bool,
+  isLoading: PropTypes.bool,
+  isError: PropTypes.bool,
   categories: PropTypes.array,
   onChange: PropTypes.func,
 };
