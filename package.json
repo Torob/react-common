@@ -19,12 +19,16 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "npm run build",
+    "postinstall": "npm run build",
     "prepublish": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "16.9.0"
+    "react": "16.9.0",
+    "react-dom": "^16.9.0",
+    "react-bootstrap": "^1.0.0-beta.14",
+    "react-router-dom": "^5.1.2"
   },
   "dependencies": {
     "aphrodite": "^2.4.0",
@@ -33,17 +37,12 @@
     "html-webpack-include-assets-plugin": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.4.1",
-    "react": "16.9.0",
-    "react-bootstrap": "^1.0.0-beta.14",
     "react-content-loader": "^4.3.2",
-    "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "react-overlays": "^2.1.0",
-    "react-router-dom": "^5.1.2",
     "react-select": "^3.0.8",
     "react-ultimate-pagination": "^1.2.0",
-    "reactstrap": "^8.0.1",
     "universal-cookie": "^4.0.2",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"

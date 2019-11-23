@@ -11,8 +11,8 @@ import SearchInfo from './components/searchInfo';
 import Toast from './components/toast';
 import FullscreenDialog from './components/fullscreenDialog';
 import { colors, bgStyles, btnStyles } from './components/torobStyles';
-import { DynamicCategorySelector, StaticCategorySelector } from './components/categorySelector';
-import { DynamicShopSelector, StaticShopSelector } from './components/shopSelector';
+import { StaticCategorySelector } from './components/categorySelector';
+import { StaticShopSelector } from './components/shopSelector';
 import ImageHolder from './components/imageHolder';
 import { useNotif, NotificationProvider } from './hooks/useNotif';
 import useTorobAPI from './hooks/useTorobAPI';
@@ -39,9 +39,7 @@ export {
   colors,
   bgStyles,
   btnStyles,
-  DynamicCategorySelector,
   StaticCategorySelector,
-  DynamicShopSelector,
   StaticShopSelector,
   ImageHolder,
   Providers,
