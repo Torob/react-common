@@ -48,6 +48,7 @@ exports.onCreateWebpackConfig = function onCreateWebpackConfig({
     resolve: {
       symlinks: false,
       alias: {
+        aphrodite: path.resolve(__dirname, "../node_modules/aphrodite"),
         "react-common": path.resolve(__dirname, "../src"),
       },
     },
