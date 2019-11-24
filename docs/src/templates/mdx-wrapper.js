@@ -28,6 +28,5 @@ const shortcodes = {
 }
 
 export const wrapRootElement = ({ element }) => {
-  console.log(element)
   return <MDXProvider components={shortcodes}>{element}</MDXProvider>
 }

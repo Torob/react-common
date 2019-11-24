@@ -22,7 +22,7 @@ const Layout = ({ children, pathName }) => {
           title
         }
       }
-      allMdx {
+      allMdx(sort: { fields: fields___slug }) {
         edges {
           node {
             id

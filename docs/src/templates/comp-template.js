@@ -5,7 +5,6 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 
 export default ({ data, location }) => {
-  console.log(location)
   const post = data.mdx
   return (
     <Layout>
