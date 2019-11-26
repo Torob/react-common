@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Nav } from 'react-bootstrap';
 import { StyleSheet, css } from 'aphrodite';
+import Sidebar from 'react-sidebar';
+
 import { StaticShopSelector } from './shopSelector';
 
-const SecondaryNavigation = ({ history, location, disableShops, onShopSelect, shopsResource }) => {
-  console.log('hihi', location, history);
+const SecondaryNavigation = ({ history, location, children, disableShops, onShopSelect, shopsResource, responsive, open }) => {
   const handleNavOnClick = e => {
     switch (e) {
       case '/search':
@@ -21,31 +22,45 @@ const SecondaryNavigation = ({ history, location, disableShops, onShopSelect, sh
         break;
     }
   };
+
   const activeKey = location.pathname;
 
   return (
-    <div className={css(styles.secondarySidebarSticky)}>
-      {!disableShops ? (
-        <StaticShopSelector
-          isLoading={shopsResource.isLoading}
-          isError={shopsResource.isError}
-          shops={shopsResource.data}
-          onChange={onShopSelect}
-        />
-      ) : null}
+    <Sidebar
+      open={responsive ? open : true}
+      shadow={false}
+      pullRight={true}
+      styles={{ content: { inset: '0px 100px 0px 0px' } }}
+      sidebarClassName={css(styles.sidebar)}
+      contentClassName={sidebarOpen ? css(styles.contentWSecondaNav) : css(styles.contentWOSecondNav)}
+      overlayClassName={css(styles.noOverlay)}
+      sidebar={
+        <div className={css(styles.secondarySidebarSticky)}>
+          {!disableShops ? (
+            <StaticShopSelector
+              isLoading={shopsResource.isLoading}
+              isError={shopsResource.isError}
+              shops={shopsResource.data}
+              onChange={onShopSelect}
+            />
+          ) : null}
 
-      <Nav variant="pills" className="flex-column" activeKey={activeKey} onSelect={handleNavOnClick}>
-        <Nav.Item className={css(styles.navItem)}>
-          <Nav.Link eventKey="/search">محصولات فروشگاه</Nav.Link>
-        </Nav.Item>
-        <Nav.Item className={css(styles.navItem)}>
-          <Nav.Link eventKey="/history">تاریخچه درخواست ها</Nav.Link>
-        </Nav.Item>
-        <Nav.Item className={css(styles.navItem)}>
-          <Nav.Link eventKey="/guide">راهنمای ادغام</Nav.Link>
-        </Nav.Item>
-      </Nav>
-    </div>
+          <Nav variant="pills" className="flex-column" activeKey={activeKey} onSelect={handleNavOnClick}>
+            <Nav.Item className={css(styles.navItem)}>
+              <Nav.Link eventKey="/search">محصولات فروشگاه</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className={css(styles.navItem)}>
+              <Nav.Link eventKey="/history">تاریخچه درخواست ها</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className={css(styles.navItem)}>
+              <Nav.Link eventKey="/guide">راهنمای ادغام</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </div>
+      }
+    >
+      {children}
+    </Sidebar>
   );
 };
 
@@ -54,11 +69,21 @@ SecondaryNavigation.propTypes = {
   // location
   disableShops: PropTypes.bool,
   onShopSelect: PropTypes.func,
+  shopsResource: PropTypes.object,
+  responsive: PropTypes.bool,
+  open: PropTypes.bool,
 };
 
 SecondaryNavigation.defaultProps = {
   disableShops: false,
   onShopSelect: () => undefined,
+  shopsResource: {
+    isLoading: false,
+    isError: false,
+    data: [],
+  },
+  responsive: false,
+  open: false,
 };
 
 const styles = StyleSheet.create({
@@ -75,6 +100,20 @@ const styles = StyleSheet.create({
     fontSize: '14px',
     'padding-bottom': '0px',
     'padding-top': '5px',
+  },
+
+  sidebar: {
+    right: '100px',
+    width: '300px',
+  },
+  noOverlay: {
+    display: 'none',
+  },
+  contentWSecondaNav: {
+    inset: '0px 400px 0px 0px',
+  },
+  contentWOSecondNav: {
+    inset: '0px 100px 0px 0px',
   },
 });
 
