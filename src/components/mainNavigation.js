@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FiShoppingCart, FiMessageSquare, FiUser, FiGitMerge } from 'react-icons/fi';
 import { StyleSheet, css } from 'aphrodite';
 import { bgStyles } from './torobStyles';
+import urls from '../urls';
 import { Nav, Col, Row } from 'react-bootstrap';
 
 const MainNavigation = ({ activePane }) => (
@@ -11,19 +12,19 @@ const MainNavigation = ({ activePane }) => (
       <Col>
         <Nav variant="pills" className="flex-column">
           <Nav.Item className={css(styles.navItem)}>
-            <Nav.Link eventKey="first" active={activePane === 'shop-panel'}>
+            <Nav.Link eventKey="first" active={activePane === 'shop-panel'} to={urls.shopPanel()}>
               <FiShoppingCart />
               فروشگاه
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className={css(styles.navItem)}>
-            <Nav.Link eventKey="second" active={activePane === 'crowdsource'}>
+            <Nav.Link eventKey="second" active={activePane === 'crowdsource'} to={urls.crowdSourcePanel()}>
               <FiGitMerge />
               ادغام
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className={css(styles.navItem)}>
-            <Nav.Link eventKey="third" active={activePane === 'ticketing'}>
+            <Nav.Link eventKey="third" active={activePane === 'ticketing'} to={urls.ticketingPanel()}>
               <FiMessageSquare />
               پشتیبانی
             </Nav.Link>

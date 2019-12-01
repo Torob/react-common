@@ -9,6 +9,9 @@ const BASE_URLS = {
 const urls = {
   amplitude: () => 'https://api.amplitude.com/httpapi/',
   torob: () => TOROB_HOME,
+  shopPanel: () => 'https://panel.torob.com',
+  ticketingPanel: () => 'https://ticketing.torob.com',
+  crowdSourcePanel: () => 'https://matching.torob.com',
   auth: {
     info: () => `${BASE_URLS.torob}v4/user/details/`,
     logout: () => `${BASE_URLS.torob}v4/user/logout/`,
