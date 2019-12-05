@@ -12,6 +12,7 @@ const urls = {
   shopPanel: () => 'https://panel.torob.com',
   ticketingPanel: () => 'https://ticketing.torob.com',
   crowdSourcePanel: () => 'https://matching.torob.com',
+  userInfo: () => 'https://panel.torob.com/accountInfo',
   auth: {
     info: () => `${BASE_URLS.torob}v4/user/details/`,
     logout: () => `${BASE_URLS.torob}v4/user/logout/`,

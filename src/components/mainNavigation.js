@@ -12,25 +12,25 @@ const MainNavigation = ({ activePane }) => (
       <Col>
         <Nav variant="pills" className="flex-column">
           <Nav.Item className={css(styles.navItem)}>
-            <Nav.Link eventKey="first" active={activePane === 'shop-panel'} to={urls.shopPanel()}>
+            <Nav.Link eventKey="first" active={activePane === 'shop-panel'} href={urls.shopPanel()}>
               <FiShoppingCart />
               فروشگاه
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className={css(styles.navItem)}>
-            <Nav.Link eventKey="second" active={activePane === 'crowdsource'} to={urls.crowdSourcePanel()}>
+            <Nav.Link eventKey="second" active={activePane === 'crowdsource'} href={urls.crowdSourcePanel()}>
               <FiGitMerge />
               ادغام
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className={css(styles.navItem)}>
-            <Nav.Link eventKey="third" active={activePane === 'ticketing'} to={urls.ticketingPanel()}>
+            <Nav.Link eventKey="third" active={activePane === 'ticketing'} href={urls.ticketingPanel()}>
               <FiMessageSquare />
               پشتیبانی
             </Nav.Link>
           </Nav.Item>
           <Nav.Item className={css(styles.navItem)}>
-            <Nav.Link eventKey="fourth" active={activePane === 'account'}>
+            <Nav.Link eventKey="fourth" active={activePane === 'account'} href={urls.userInfo()}>
               <FiUser />
               حساب من
             </Nav.Link>
