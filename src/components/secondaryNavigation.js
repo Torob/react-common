@@ -45,7 +45,7 @@ const SecondaryNavigation = ({
                 <Nav.Item className={css(styles.navItem)}>
                   <Nav.Link
                     eventKey={item.eventKey}
-                    className={css(styles.navLink, activeKey === eventKey && styles.activeNavLink)}
+                    className={css(styles.navLink, activeKey === item.eventKey && styles.activeNavLink)}
                   >
                     {item.text}
                   </Nav.Link>
