@@ -7,25 +7,18 @@ import Sidebar from 'react-sidebar';
 import { StaticShopSelector } from './shopSelector';
 import { colors } from './torobStyles';
 
-const SecondaryNavigation = ({ history, location, children, disableShops, onShopSelect, shopsResource, responsive, open }) => {
-  const handleNavOnClick = e => {
-    switch (e) {
-      case '/search':
-        history.push('/search');
-        break;
-      case '/history':
-        history.push('/history');
-        break;
-      case '/guide':
-        history.push('/guide');
-        break;
-      default:
-        break;
-    }
-  };
-
+const SecondaryNavigation = ({
+  location,
+  children,
+  disableShops,
+  onShopSelect,
+  shopsResource,
+  responsive,
+  open,
+  items,
+  handleNavOnClick,
+}) => {
   const activeKey = location.pathname;
-
   return (
     <Sidebar
       open={responsive ? open : true}
@@ -47,15 +40,18 @@ const SecondaryNavigation = ({ history, location, children, disableShops, onShop
           ) : null}
 
           <Nav variant="pills" className="flex-column" activeKey={activeKey} onSelect={handleNavOnClick}>
-            <Nav.Item className={css(styles.navItem)}>
-              <Nav.Link eventKey="/search">محصولات فروشگاه</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className={css(styles.navItem)}>
-              <Nav.Link eventKey="/history">تاریخچه درخواست ها</Nav.Link>
-            </Nav.Item>
-            <Nav.Item className={css(styles.navItem)}>
-              <Nav.Link eventKey="/guide">راهنمای ادغام</Nav.Link>
-            </Nav.Item>
+            {items.map(item => {
+              return (
+                <Nav.Item className={css(styles.navItem)}>
+                  <Nav.Link
+                    eventKey={item.eventKey}
+                    className={css(styles.navLink, activeKey === eventKey && styles.activeNavLink)}
+                  >
+                    {item.text}
+                  </Nav.Link>
+                </Nav.Item>
+              );
+            })}
           </Nav>
         </div>
       }
@@ -66,13 +62,13 @@ const SecondaryNavigation = ({ history, location, children, disableShops, onShop
 };
 
 SecondaryNavigation.propTypes = {
-  // history
-  // location
   disableShops: PropTypes.bool,
   onShopSelect: PropTypes.func,
   shopsResource: PropTypes.object,
   responsive: PropTypes.bool,
   open: PropTypes.bool,
+  items: PropTypes.array,
+  handleNavOnClick: PropTypes.func,
 };
 
 SecondaryNavigation.defaultProps = {
@@ -85,6 +81,8 @@ SecondaryNavigation.defaultProps = {
   },
   responsive: false,
   open: false,
+  items: [],
+  handleNavOnClick: () => undefined,
 };
 
 const styles = StyleSheet.create({
@@ -95,14 +93,19 @@ const styles = StyleSheet.create({
     'padding-top': '.5rem',
     'overflow-x': 'hidden',
   },
-
   navItem: {
     padding: '15px',
     fontSize: '14px',
     'padding-bottom': '0px',
     'padding-top': '5px',
   },
-
+  navLink: {
+    color: colors.blue,
+  },
+  activeNavLink: {
+    color: 'white',
+    backgroundColor: colors.blue,
+  },
   sidebar: {
     right: '100px',
     width: '300px',
