@@ -11,7 +11,7 @@ export const CrowdSourceIcon = ({ style = {}, color, width = '100%', className =
     className={`svg-icon ${className || ''}`}
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
-    <g fill="none" fill-rule="evenodd" stroke={color || colors.blue} stroke-width="3" transform="translate(0 7)">
+    <g fill="none" fill-rule="evenodd" stroke={color || colors.blue} stroke-width="2" transform="translate(0 7)">
       <circle cx="11.5" cy="11.5" r="10" />
       <circle cx="24.5" cy="11.5" r="10" />
     </g>
