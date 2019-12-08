@@ -21,7 +21,7 @@ const MainNavigation = ({ activePane }) => {
       paneName: 'crowdsource',
       href: urls.crowdSourcePanel(),
       eventKey: 'second',
-      icon: <CrowdSourceIcon />,
+      icon: <CrowdSourceIcon color={'#FFF'} />,
     },
     {
       text: 'پشتیبانی',
@@ -54,7 +54,6 @@ const MainNavigation = ({ activePane }) => {
                     href={item.href}
                     className={css(styles.navLink, active && styles.activeNavLink)}
                   >
-                    <FiShoppingCart />
                     {item.icon}
                     {item.text}
                   </Nav.Link>
