@@ -17,11 +17,13 @@ import ImageHolder from './components/imageHolder';
 import { useNotif, NotificationProvider } from './hooks/useNotif';
 import useTorobAPI from './hooks/useTorobAPI';
 import { AuthProvider, useAuth } from './providers/auth';
+import { CompareIcon, CrowdSourceIcon } from './components/torobIcons';
 import TorobPagination from './components/pagination';
 
 const DynamicTitle = { TitleComponent, withTitle };
 const hooks = { useNotif, useTorobAPI, useAuth };
 const Providers = { AuthProvider, NotificationProvider };
+const TorobIcons = { CompareIcon, CrowdSourceIcon };
 
 export {
   TorobHeader,
@@ -45,4 +47,5 @@ export {
   Providers,
   hooks,
   TorobPagination,
+  TorobIcons,
 };
