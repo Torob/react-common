@@ -22,6 +22,14 @@ const StaticShopSelector = ({ isLoading, isError, shops, onChange }) => {
       isLoading={isLoading}
       isDisabled={isLoading}
       onChange={e => onChange(e.value)}
+      styles={{
+        container: (p, s) => ({
+          padding: '0px 15px',
+        }),
+        menu: (p, s) => ({
+          'z-index': 100,
+        }),
+      }}
     />
   );
 };
