@@ -5,6 +5,7 @@ import { StyleSheet, css } from 'aphrodite';
 import Sidebar from 'react-sidebar';
 
 import { StaticShopSelector } from './shopSelector';
+import { colors } from './torobStyles';
 
 const SecondaryNavigation = ({ history, location, children, disableShops, onShopSelect, shopsResource, responsive, open }) => {
   const handleNavOnClick = e => {
@@ -105,6 +106,7 @@ const styles = StyleSheet.create({
   sidebar: {
     right: '100px',
     width: '300px',
+    borderLeft: `1px solid ${colors.ink10}`,
   },
   noOverlay: {
     display: 'none',
