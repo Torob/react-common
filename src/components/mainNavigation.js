@@ -21,7 +21,7 @@ const MainNavigation = ({ activePane }) => {
       paneName: 'crowdsource',
       href: urls.crowdSourcePanel(),
       eventKey: 'second',
-      icon: <CrowdSourceIcon color={'#FFF'} />,
+      icon: <CrowdSourceIcon color={activePane === 'crowdsource' ? '#FFF' : colors.blue} />,
     },
     {
       text: 'پشتیبانی',
