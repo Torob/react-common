@@ -115,10 +115,10 @@ const styles = StyleSheet.create({
     display: 'none',
   },
   contentWSecondaNav: {
-    inset: '0px 400px 0px 0px',
+    right: '400px',
   },
   contentWOSecondNav: {
-    inset: '0px 100px 0px 0px',
+    right: '100px',
   },
 });
 
