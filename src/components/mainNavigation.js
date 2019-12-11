@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     'text-align': 'center',
   },
   navLink: {
-    color: colors.blue,
+    color: 'black',
   },
   activeNavLink: {
     color: 'white',
