@@ -91,6 +91,10 @@ const styles = StyleSheet.create({
   },
   navLink: {
     color: 'black',
+    padding: 'unset',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   activeNavLink: {
     color: 'white',
