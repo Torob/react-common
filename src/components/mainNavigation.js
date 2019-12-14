@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
   activeNavLink: {
     color: 'white',
     backgroundColor: colors.blue,
+    padding: '10px',
   },
 });
 
