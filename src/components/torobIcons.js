@@ -5,7 +5,6 @@ export const CrowdSourceIcon = ({ style = {}, color, width = '100%', className =
   <svg
     width={width}
     style={style}
-    height={width}
     viewBox={viewBox}
     xmlns="http://www.w3.org/2000/svg"
     className={`svg-icon ${className || ''}`}
@@ -22,7 +21,6 @@ export const CompareIcon = ({ style = {}, color, width = '100%', className = '',
   <svg
     width={width}
     style={style}
-    height={width}
     viewBox={viewBox}
     xmlns="http://www.w3.org/2000/svg"
     className={`svg-icon ${className || ''}`}
