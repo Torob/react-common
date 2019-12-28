@@ -20,6 +20,7 @@ import useTorobAPI from './hooks/useTorobAPI';
 import { AuthProvider, useAuth } from './providers/auth';
 import { CompareIcon, CrowdSourceIcon } from './components/torobIcons';
 import TorobPagination from './components/pagination';
+import Analytics from './analytics';
 
 const DynamicTitle = { TitleComponent, withTitle };
 const hooks = { useNotif, useTorobAPI, useAuth };
@@ -49,5 +50,6 @@ export {
   hooks,
   TorobPagination,
   TorobIcons,
+  Analytics,
   Navigation,
 };
