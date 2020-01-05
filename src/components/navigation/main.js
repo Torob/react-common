@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col, Nav } from 'react-bootstrap';
 
 import { StyleSheet, css } from 'aphrodite/no-important';
+import { StyleSheet as ImportantStyle } from 'aphrodite';
 import { colors } from '../torobStyles';
 
 const styles = StyleSheet.create({
@@ -23,10 +24,14 @@ const styles = StyleSheet.create({
     padding: '5px 8px',
     fontSize: '12px',
   },
+});
+
+const importantStyles = ImportantStyle.create({
   navLinkActive: {
     backgroundColor: colors.blue,
   },
 });
+
 const MainNavigation = ({ panes, activePane }) => (
   <div className={css(styles.mainSidebarStick)}>
     <Row>
@@ -38,10 +43,9 @@ const MainNavigation = ({ panes, activePane }) => (
               <Nav.Item className={css(styles.navItem)} key={item.id}>
                 <Nav.Link
                   active={activePane === item.id}
-                  className={css(styles.navLinkDark, activePane === item.id && styles.navLinkActive)}
+                  className={css(styles.navLinkDark, activePane === item.id && importantStyles.navLinkActive)}
                   disabled={item.isDisabled}
                   {...item.linkProps}
-                  style={activePane === item.id && { backgroundColor: colors.blue + ' !important' }}
                 >
                   <h1 style={{ margin: '0 0 4px', fontSize: '2.3rem' }}>{item.icon}</h1>
                   {item.name}
