@@ -72,6 +72,7 @@ const Navigation = ({
   mobileVersion,
   hasAccess,
   rtl,
+  enablePermissions,
 }) => {
   const sidebarWidthClasss = items.length ? styles.fixSidebarWidth : styles.fixSingleSidebarWidth;
   const [isSideBarVisible, onToggle] = useState(false);
@@ -137,7 +138,7 @@ const Navigation = ({
               onInstanceChange={handleInstanceChange}
               renderShopSelect={renderShopSelect}
               location={location}
-              items={items.map(i => hasAccess(instance, i.url, userInfo))}
+              items={enablePermissions ? items.map(i => hasAccess(instance, i.url, userInfo)) : items}
             />
           </div>
         ) : null}
@@ -158,14 +159,14 @@ const Navigation = ({
           <div style={{ paddingTop: '1em' }}>
             {items.map(p => {
               if (p.render) {
-                const res = hasAccess(instance, p.url, userInfo);
+                const res = enablePermissions ? hasAccess(instance, p.url, userInfo) : p;
                 return res && !res.disabled ? (
                   <div key={p.url} className={res.isWide ? css(styles.container) : `container container-small`}>
                     <Route path={`${prefix}${p.url}`} render={props => p.render({ ...props, instance })} />
                   </div>
                 ) : null;
               } else if (p.component) {
-                const res = hasAccess(instance, p.url, userInfo);
+                const res = enablePermissions ? hasAccess(instance, p.url, userInfo) : p;
                 return res && !res.disabled ? (
                   <div key={p.url} className={res.isWide ? css(styles.container) : `container container-small`}>
                     <Route path={`${prefix}${p.url}`} component={p.component} />
@@ -185,11 +186,13 @@ Navigation.propTypes = {
   mobileVersion: PropTypes.bool,
   hasAccess: PropTypes.func,
   rtl: PropTypes.bool,
+  enablePermissions: PropTypes.bool,
 };
 Navigation.defaultProps = {
   items: [],
   rtl: false,
   mobileVersion: true,
+  enablePermissions: true,
 };
 
 export default Navigation;
