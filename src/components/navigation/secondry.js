@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
   navLinkActive: {
     backgroundColor: colors.blue,
+    color: '#fff',
   },
 });
 
