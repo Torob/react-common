@@ -151,8 +151,8 @@ const Navigation = ({
       >
         {isSideBarVisible ? <FiX /> : <FiMoreHorizontal />}
       </Button>
-      <div style={{ display: 'flex' }}>
-        <div className={`${css(sidebarWidthClasss, rtl && styles.rtl)} d-none d-sm-block`} style={{ flexShrink: 0 }} />
+      <div style={{ display: 'flex' }} className={css(rtl && styles.rtl)}>
+        <div className={`${css(sidebarWidthClasss)} d-none d-sm-block`} style={{ flexShrink: 0 }} />
         <div style={{ flexGrow: 1 }}>
           {children}
           <div style={{ paddingTop: '1em' }}>
