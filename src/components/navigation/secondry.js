@@ -5,6 +5,7 @@ import { Nav } from 'react-bootstrap';
 
 import { StyleSheet, css } from 'aphrodite/no-important';
 import StaticShopSelector from './shopSelector';
+import { colors } from '../torobStyles';
 
 const styles = StyleSheet.create({
   secondarySidebarSticky: {
@@ -29,13 +30,18 @@ const styles = StyleSheet.create({
     color: '#333333',
     padding: '0.5rem',
   },
+  navLinkActive: {
+    backgroundColor: colors.blue,
+  },
 });
 
 const SecondaryNavigation = ({ location, items, instances, selectedInstance, onInstanceChange, renderShopSelect }) => {
   const activeKey = location.pathname;
   return (
     <div className={css(styles.secondarySidebarSticky)}>
-      {renderShopSelect ? <StaticShopSelector shops={instances} selectedShop={selectedInstance} onChange={onInstanceChange} /> : null}
+      {renderShopSelect ? (
+        <StaticShopSelector shops={instances} selectedShop={selectedInstance} onChange={onInstanceChange} />
+      ) : null}
 
       <Nav variant="pills" className="flex-column" activeKey={activeKey}>
         {items.map((i, index) => {
@@ -52,7 +58,13 @@ const SecondaryNavigation = ({ location, items, instances, selectedInstance, onI
           }
           return (
             <Nav.Item key={i.id} className={css(styles.navItem2)}>
-              <Nav.Link eventKey={i.key} className={css(styles.navLinkDark2)} as={Link} to={i.to} disabled={i.disabled}>
+              <Nav.Link
+                eventKey={i.key}
+                className={css(styles.navLinkDark2, activeKey === i.key && styles.navLinkActive)}
+                as={Link}
+                to={i.to}
+                disabled={i.disabled}
+              >
                 {i.name}
               </Nav.Link>
             </Nav.Item>
