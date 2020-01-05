@@ -41,6 +41,7 @@ const MainNavigation = ({ panes, activePane }) => (
                   className={css(styles.navLinkDark, activePane === item.id && styles.navLinkActive)}
                   disabled={item.isDisabled}
                   {...item.linkProps}
+                  style={activePane === item.id && { backgroundColor: colors.blue + ' !important' }}
                 >
                   <h1 style={{ margin: '0 0 4px', fontSize: '2.3rem' }}>{item.icon}</h1>
                   {item.name}
