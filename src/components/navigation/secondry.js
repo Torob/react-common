@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 
-import { StyleSheet, css } from 'aphrodite/no-important';
+import { StyleSheet, css } from 'aphrodite';
 import StaticShopSelector from './shopSelector';
 import { colors } from '../torobStyles';
 
