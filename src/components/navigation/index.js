@@ -54,6 +54,9 @@ const styles = StyleSheet.create({
     'background-color': 'white',
     'box-shadow': 'inset 1px 0 0 rgba(0, 0, 0, .1)',
   },
+  rtl: {
+    flexDirection: 'row-reverse',
+  },
 });
 const Navigation = ({
   instance,
@@ -68,6 +71,7 @@ const Navigation = ({
   userInfo,
   mobileVersion,
   hasAccess,
+  rtl,
 }) => {
   const sidebarWidthClasss = items.length ? styles.fixSidebarWidth : styles.fixSingleSidebarWidth;
   const [isSideBarVisible, onToggle] = useState(false);
@@ -76,8 +80,8 @@ const Navigation = ({
     prefix = prefix + '/';
   }
   const navigationClass = isSideBarVisible
-    ? `${css(styles.fixSidebar, styles.fullWidth)} d-flex`
-    : `${css(styles.fixSidebar, sidebarWidthClasss)} d-none d-sm-flex`;
+    ? `${css(styles.fixSidebar, styles.fullWidth, rtl && styles.rtl)} d-flex`
+    : `${css(styles.fixSidebar, sidebarWidthClasss, rtl && styles.rtl)} d-none d-sm-flex`;
   return (
     <React.Fragment>
       <div className={navigationClass}>
@@ -94,13 +98,19 @@ const Navigation = ({
                 id: 'crowdsource',
                 name: 'ادغام',
                 icon: <CrowdSourceIcon />,
-                linkProps: { href: 'https://matching.torob.com', disabled: instance.id === undefined && !(userInfo && userInfo.isStaff) },
+                linkProps: {
+                  href: 'https://matching.torob.com',
+                  disabled: instance.id === undefined && !(userInfo && userInfo.isStaff),
+                },
               },
               {
                 id: 'ticketing',
                 name: 'پشتیبانی',
                 icon: <FiMessageSquare />,
-                linkProps: { href: 'https://ticketing.torob.com', disabled: instance.id === undefined && !(userInfo && userInfo.isStaff) },
+                linkProps: {
+                  href: 'https://ticketing.torob.com',
+                  disabled: instance.id === undefined && !(userInfo && userInfo.isStaff),
+                },
               },
               {
                 id: '/account/',
@@ -142,7 +152,7 @@ const Navigation = ({
         {isSideBarVisible ? <FiX /> : <FiMoreHorizontal />}
       </Button>
       <div style={{ display: 'flex' }}>
-        <div className={`${css(sidebarWidthClasss)} d-none d-sm-block`} style={{ flexShrink: 0 }} />
+        <div className={`${css(sidebarWidthClasss, rtl && styles.rtl)} d-none d-sm-block`} style={{ flexShrink: 0 }} />
         <div style={{ flexGrow: 1 }}>
           {children}
           <div style={{ paddingTop: '1em' }}>
@@ -174,9 +184,11 @@ Navigation.propTypes = {
   items: PropTypes.array,
   mobileVersion: PropTypes.bool,
   hasAccess: PropTypes.func,
+  rtl: PropTypes.bool,
 };
 Navigation.defaultProps = {
   items: [],
+  rtl: false,
   mobileVersion: true,
 };
 
