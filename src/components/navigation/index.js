@@ -74,6 +74,7 @@ const Navigation = ({
   rtl,
   enablePermissions,
   extraPanes,
+  mainNavActivePane,
 }) => {
   const sidebarWidthClasss = items.length ? styles.fixSidebarWidth : styles.fixSingleSidebarWidth;
   const [isSideBarVisible, onToggle] = useState(false);
@@ -91,10 +92,10 @@ const Navigation = ({
           <MainNavigation
             panes={[
               {
-                id: '/',
+                id: 'panel',
                 name: 'فروشگاه',
                 icon: <FiShoppingCart />,
-                linkProps: { as: Link, to: `/` },
+                linkProps: { href: 'https://panel.torob.com', disabled: false },
               },
               {
                 id: 'crowdsource',
@@ -129,7 +130,7 @@ const Navigation = ({
               },
               ...extraPanes,
             ]}
-            activePane={prefix}
+            activePane={mainNavActivePane || prefix}
           />
         </div>
         {items.length ? (
@@ -190,6 +191,7 @@ Navigation.propTypes = {
   rtl: PropTypes.bool,
   enablePermissions: PropTypes.bool,
   extraPanes: PropTypes.array,
+  mainNavActivePane: PropTypes.string,
 };
 Navigation.defaultProps = {
   items: [],
@@ -197,6 +199,7 @@ Navigation.defaultProps = {
   mobileVersion: true,
   enablePermissions: true,
   extraPanes: [],
+  mainNavActivePane: undefined,
 };
 
 export default Navigation;
