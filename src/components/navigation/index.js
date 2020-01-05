@@ -73,6 +73,7 @@ const Navigation = ({
   hasAccess,
   rtl,
   enablePermissions,
+  extraPanes,
 }) => {
   const sidebarWidthClasss = items.length ? styles.fixSidebarWidth : styles.fixSingleSidebarWidth;
   const [isSideBarVisible, onToggle] = useState(false);
@@ -126,6 +127,7 @@ const Navigation = ({
                 linkProps: { as: Link, to: `/admin/dashboard` },
                 invisible: !userInfo.isStaff,
               },
+              ...extraPanes,
             ]}
             activePane={prefix}
           />
@@ -187,12 +189,14 @@ Navigation.propTypes = {
   hasAccess: PropTypes.func,
   rtl: PropTypes.bool,
   enablePermissions: PropTypes.bool,
+  extraPanes: PropTypes.array,
 };
 Navigation.defaultProps = {
   items: [],
   rtl: false,
   mobileVersion: true,
   enablePermissions: true,
+  extraPanes: [],
 };
 
 export default Navigation;

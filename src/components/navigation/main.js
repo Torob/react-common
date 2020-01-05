@@ -32,8 +32,13 @@ const MainNavigation = ({ panes, activePane }) => (
             if (item.invisible) return null;
             return (
               <Nav.Item className={css(styles.navItem)} key={item.id}>
-                <Nav.Link active={activePane === item.id} className={css(styles.navLinkDark)} disabled={item.isDisabled} {...item.linkProps}>
-                  <h1 style={{ margin: '0 0 4px' }}>{item.icon}</h1>
+                <Nav.Link
+                  active={activePane === item.id}
+                  className={css(styles.navLinkDark)}
+                  disabled={item.isDisabled}
+                  {...item.linkProps}
+                >
+                  <h1 style={{ margin: '0 0 4px', fontSize: '2.3rem' }}>{item.icon}</h1>
                   {item.name}
                 </Nav.Link>
               </Nav.Item>
