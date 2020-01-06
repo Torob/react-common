@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col, Nav } from 'react-bootstrap';
 
 import { StyleSheet, css } from 'aphrodite/no-important';
-import { StyleSheet as ImportantStyle } from 'aphrodite';
+import { StyleSheet as ImportantStyle, css as icss } from 'aphrodite';
 import { colors } from '../torobStyles';
 
 const styles = StyleSheet.create({
@@ -43,7 +43,7 @@ const MainNavigation = ({ panes, activePane }) => (
               <Nav.Item className={css(styles.navItem)} key={item.id}>
                 <Nav.Link
                   active={activePane === item.id}
-                  className={css(styles.navLinkDark, activePane === item.id && importantStyles.navLinkActive)}
+                  className={css(styles.navLinkDark) + ' ' + icss(activePane === item.id && importantStyles.navLinkActive)}
                   disabled={item.isDisabled}
                   {...item.linkProps}
                 >
