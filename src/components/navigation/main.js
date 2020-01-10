@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Nav } from 'react-bootstrap';
+import { Row, Col, Nav, Badge } from 'react-bootstrap';
 
 import { StyleSheet, css } from 'aphrodite/no-important';
 import { StyleSheet as ImportantStyle, css as icss } from 'aphrodite';
@@ -48,7 +48,8 @@ const MainNavigation = ({ panes, activePane }) => (
                   {...item.linkProps}
                 >
                   <h1 style={{ margin: '0 0 4px', fontSize: '2.3rem' }}>{item.icon}</h1>
-                  {item.name}
+                  <Badge variant="light">9</Badge>
+                  <span className="sr-only">{item.name}</span>
                 </Nav.Link>
               </Nav.Item>
             );
