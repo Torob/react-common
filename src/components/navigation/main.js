@@ -48,8 +48,8 @@ const MainNavigation = ({ panes, activePane }) => (
                   {...item.linkProps}
                 >
                   <h1 style={{ margin: '0 0 4px', fontSize: '2.3rem' }}>{item.icon}</h1>
-                  <Badge variant="light">9</Badge>
-                  <span className="sr-only">{item.name}</span>
+                  {item.name}
+                  {item.hasBadge ? <Badge variant="warning">{item.badgeValue}</Badge> : null}
                 </Nav.Link>
               </Nav.Item>
             );

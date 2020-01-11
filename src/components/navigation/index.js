@@ -75,6 +75,7 @@ const Navigation = ({
   enablePermissions,
   extraPanes,
   mainNavActivePane,
+  unreadNotificationsCount,
 }) => {
   const sidebarWidthClasss = items.length ? styles.fixSidebarWidth : styles.fixSingleSidebarWidth;
   const [isSideBarVisible, onToggle] = useState(false);
@@ -110,6 +111,8 @@ const Navigation = ({
                 id: 'ticketing',
                 name: 'پشتیبانی',
                 icon: <FiMessageSquare />,
+                hasBadge: true,
+                badgeValue: unreadNotificationsCount,
                 linkProps: {
                   href: 'https://ticketing.torob.com',
                   disabled: instance.id === undefined && !(userInfo && userInfo.isStaff),
