@@ -30,6 +30,10 @@ const importantStyles = ImportantStyle.create({
   navLinkActive: {
     backgroundColor: colors.blue,
   },
+  unreadBadge: {
+    backgroundColor: colors.blue,
+    marginRight: '2px',
+  },
 });
 
 const MainNavigation = ({ panes, activePane }) => (
@@ -48,8 +52,12 @@ const MainNavigation = ({ panes, activePane }) => (
                   {...item.linkProps}
                 >
                   <h1 style={{ margin: '0 0 4px', fontSize: '2.3rem' }}>{item.icon}</h1>
+                  {item.hasBadge ? (
+                    <Badge variant="primary" className={icss(importantStyles.unreadBadge)}>
+                      {item.badgeValue}
+                    </Badge>
+                  ) : null}
                   {item.name}
-                  {item.hasBadge ? <Badge variant="warning">{item.badgeValue}</Badge> : null}
                 </Nav.Link>
               </Nav.Item>
             );
