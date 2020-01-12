@@ -53,7 +53,7 @@ const MainNavigation = ({ panes, activePane }) => (
                 >
                   <h1 style={{ margin: '0 0 4px', fontSize: '2.3rem' }}>{item.icon}</h1>
                   {item.hasBadge ? (
-                    <Badge variant="primary" className={icss(importantStyles.unreadBadge)}>
+                    <Badge pill variant="primary" className={icss(importantStyles.unreadBadge)}>
                       {item.badgeValue}
                     </Badge>
                   ) : null}
