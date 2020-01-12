@@ -52,7 +52,7 @@ const MainNavigation = ({ panes, activePane }) => (
                   {...item.linkProps}
                 >
                   <h1 style={{ margin: '0 0 4px', fontSize: '2.3rem' }}>{item.icon}</h1>
-                  {item.hasBadge ? (
+                  {item.hasBadge && item.badgeValue > 0 ? (
                     <Badge pill variant="primary" className={icss(importantStyles.unreadBadge)}>
                       {item.badgeValue}
                     </Badge>
