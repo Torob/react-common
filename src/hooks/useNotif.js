@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
 import Toast from '../components/toast';
@@ -22,15 +22,18 @@ let toastCount = 0;
 export function NotificationProvider({ children }) {
   const [toasts, setToasts] = useState([]);
 
-  const add = (content, variant = 'hint') => {
+  const add = (content, variant = 'hint', autoClose = true, closeTime = 2000) => {
     const id = toastCount++;
     const toast = { content, id, variant };
     setToasts([...toasts, toast]);
+    autoClose && setTimeout(() => remove(id), closeTime);
   };
+
   const remove = id => {
     const newToasts = toasts.filter(t => t.id !== id);
     setToasts(newToasts);
   };
+
   const onDismiss = id => () => remove(id);
 
   return (
