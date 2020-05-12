@@ -76,6 +76,7 @@ const Navigation = ({
   extraPanes,
   mainNavActivePane,
   unreadNotificationsCount,
+  footerComponent,
 }) => {
   const sidebarWidthClasss = items.length ? styles.fixSidebarWidth : styles.fixSingleSidebarWidth;
   const [isSideBarVisible, onToggle] = useState(false);
@@ -145,6 +146,7 @@ const Navigation = ({
               renderShopSelect={renderShopSelect}
               location={location}
               items={enablePermissions ? items.map(i => hasAccess(instance, i.url, userInfo)) : items}
+              footerComponent={footerComponent}
             />
           </div>
         ) : null}

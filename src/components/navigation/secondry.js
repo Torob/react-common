@@ -5,7 +5,7 @@ import { Nav } from 'react-bootstrap';
 
 import { StyleSheet, css } from 'aphrodite';
 import StaticShopSelector from './shopSelector';
-import { colors } from '../torobStyles';
+import { colors } from '@torob/react-common';
 
 const styles = StyleSheet.create({
   secondarySidebarSticky: {
@@ -36,7 +36,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const SecondaryNavigation = ({ location, items, instances, selectedInstance, onInstanceChange, renderShopSelect }) => {
+const SecondaryNavigation = ({
+  location,
+  items,
+  instances,
+  selectedInstance,
+  onInstanceChange,
+  renderShopSelect,
+  footerComponent,
+}) => {
   const activeKey = location.pathname;
   return (
     <div className={css(styles.secondarySidebarSticky)}>
@@ -72,6 +80,7 @@ const SecondaryNavigation = ({ location, items, instances, selectedInstance, onI
           );
         })}
       </Nav>
+      {footerComponent}
     </div>
   );
 };
