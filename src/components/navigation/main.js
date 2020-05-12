@@ -4,7 +4,7 @@ import { Row, Col, Nav, Badge } from 'react-bootstrap';
 
 import { StyleSheet, css } from 'aphrodite/no-important';
 import { StyleSheet as ImportantStyle, css as icss } from 'aphrodite';
-import { colors } from '@torob/react-common';
+import { colors } from '../torobStyles';
 
 const styles = StyleSheet.create({
   mainSidebarStick: {

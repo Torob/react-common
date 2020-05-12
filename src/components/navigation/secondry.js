@@ -5,7 +5,7 @@ import { Nav } from 'react-bootstrap';
 
 import { StyleSheet, css } from 'aphrodite';
 import StaticShopSelector from './shopSelector';
-import { colors } from '@torob/react-common';
+import { colors } from '../torobStyles';
 
 const styles = StyleSheet.create({
   secondarySidebarSticky: {
