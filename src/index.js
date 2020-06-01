@@ -22,6 +22,8 @@ import { AuthProvider, useAuth } from './providers/auth';
 import { CompareIcon, CrowdSourceIcon } from './components/torobIcons';
 import TorobPagination from './components/pagination';
 import Analytics from './analytics';
+import DateSpan from './components/DatePicker/DateSpan';
+import InputDate from './components/DatePicker/InputDate'
 
 const DynamicTitle = { TitleComponent, withTitle };
 const hooks = { useNotif, useTorobAPI, useAuth };
@@ -54,4 +56,6 @@ export {
   Analytics,
   Navigation,
   MainNav,
+  InputDate,
+  DateSpan
 };
