@@ -6,8 +6,8 @@ import jquery from 'jquery';
 
 window.jQuery = jquery;
 window.$ = jquery;
-require('../lib/persian-datepicker/persianDatepicker.js');
-require('../lib/persian-datepicker/persianDatepicker-default.css');
+require('./persian-datepicker/persianDatepicker.js');
+require('./persian-datepicker/persianDatepicker-default.css');
 
 // it's a react component wrapper for persian date picker.
 class InputDate extends Component {
