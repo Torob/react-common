@@ -6,7 +6,7 @@ import Cookies from 'universal-cookie';
 window.$ = jquery;
 window.jQuery = jquery;
 require('../components/DatePicker/persian-datepicker/persianDatepicker.js');
-require('../components/DatePicker/persian-datepicker/persianDatepicker-default.css');
+import '../components/DatePicker/persian-datepicker/persianDatepicker-default.css';
 
 function humanDate(jd, format = 'd m y') {
   const parts = jd.split('-');
@@ -23,7 +23,7 @@ function humanDate2(jd = null, compact = false) {
   }
   const jdf = new window.jDateFunctions();
   const date = jdf.getPCalendarDate(jdf.getJulianDay(d)).toString('DD NM YYYY');
-  const twoPos = inp => `0${inp}`.slice(-2);
+  const twoPos = (inp) => `0${inp}`.slice(-2);
   if (compact) {
     return date;
   }
@@ -58,7 +58,7 @@ function getTorobName(item) {
 }
 function loadScript(url) {
   const l = document.getElementsByTagName('script');
-  const item = Array.prototype.find.call(l, i => i.src === url);
+  const item = Array.prototype.find.call(l, (i) => i.src === url);
   if (!item) {
     const script = document.createElement('script');
     script.src = url;
@@ -107,22 +107,22 @@ function getFromCookie(key, defaultVal = 0, validFor = 3600 * 24) {
   return { value: cookies.get(key), state: 0 };
 }
 function getCategoryChildren(catId, allCategories) {
-  const childs = allCategories.filter(i => i.category_parent === catId).map(child => child.id);
+  const childs = allCategories.filter((i) => i.category_parent === catId).map((child) => child.id);
   if (childs.length === 0) {
     return [catId];
   }
-  const res = childs.map(child => getCategoryChildren(child, allCategories)).reduce((a, b) => a.concat(b), []);
+  const res = childs.map((child) => getCategoryChildren(child, allCategories)).reduce((a, b) => a.concat(b), []);
   res.push(catId);
   return res;
 }
 function getCategoryParents(id, categories) {
-  let cat = categories.find(p => p.id === id);
+  let cat = categories.find((p) => p.id === id);
   if (!cat) {
     return [];
   }
   const parents = [cat];
   while (cat && cat.category_parent) {
-    cat = categories.find((item => p => p.id === item.category_parent)(cat));
+    cat = categories.find(((item) => (p) => p.id === item.category_parent)(cat));
     parents.push(cat);
   }
   return parents.reverse();
