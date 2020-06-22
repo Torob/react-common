@@ -5,6 +5,7 @@ import postcss from 'rollup-plugin-postcss';
 import url from 'rollup-plugin-url';
 import replace from 'rollup-plugin-replace';
 import json from 'rollup-plugin-json';
+import copy from 'rollup-plugin-copy';
 
 import pkg from './package.json';
 
@@ -23,6 +24,9 @@ export default {
     },
   ],
   plugins: [
+    copy({
+      targets: [{ src: 'src/components/DatePicker/persian-datepicker/*', dest: 'dist/persian-datepicker' }],
+    }),
     json(),
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
