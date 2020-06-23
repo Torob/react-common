@@ -13,7 +13,7 @@ const colors = {
   ink50: '#808080',
   ink80: '#333333',
   sky: '#ECEDEF',
-  skylight: '#F9FAFB',
+  skylight: '#f2f3f5',
   skydark: '#919EAB',
   highlight: '#FDDC42',
 
