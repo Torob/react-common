@@ -33,7 +33,7 @@ export default {
     }),
     external(),
     postcss({
-      modules: true,
+      modules: false,
     }),
     url(),
     babel({
