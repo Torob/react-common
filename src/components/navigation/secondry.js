@@ -66,13 +66,13 @@ const SecondaryNavigation = ({
             return <hr key={index} style={{ width: '100%' }} />;
           }
           return (
-            <Nav.Item key={i.id} className={css(styles.navItem2)}>
+            <Nav.Item key={i.id || i.key} className={css(styles.navItem2)}>
               <Nav.Link
                 eventKey={i.key}
                 className={css(styles.navLinkDark2, activeKey === i.key && styles.navLinkActive)}
                 as={Link}
                 to={i.to}
-                disabled={i.disabled}
+                disabled={i.disabled || false}
               >
                 {i.name}
               </Nav.Link>
@@ -85,12 +85,12 @@ const SecondaryNavigation = ({
   );
 };
 const itemFormat = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
-  type: PropTypes.string.isRequired,
   key: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  disabled: PropTypes.bool,
+  type: PropTypes.string,
   isWide: PropTypes.bool,
 });
 SecondaryNavigation.propTypes = {
