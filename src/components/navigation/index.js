@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
-import { Link, Route } from 'react-router-dom';
-import { FiShoppingCart, FiMessageSquare, FiUser, FiGitMerge, FiSettings, FiX, FiMoreHorizontal } from 'react-icons/fi';
+import { Route } from 'react-router-dom';
+import { FiShoppingCart, FiMessageSquare, FiUser, FiSettings, FiX, FiMoreHorizontal } from 'react-icons/fi';
 import { CrowdSourceIcon } from './torobIcons';
 import { StyleSheet, css } from 'aphrodite/no-important';
 
@@ -145,7 +145,7 @@ const Navigation = ({
               onInstanceChange={handleInstanceChange}
               renderShopSelect={renderShopSelect}
               location={location}
-              items={enablePermissions ? items.map(i => hasAccess(instance, i.url, userInfo)) : items}
+              items={enablePermissions ? items.map((i) => hasAccess(instance, i.url, userInfo)) : items}
               footerComponent={footerComponent}
             />
           </div>
@@ -165,12 +165,12 @@ const Navigation = ({
         <div style={{ flexGrow: 1 }}>
           {children}
           <div style={{ paddingTop: '1em' }}>
-            {items.map(p => {
+            {items.map((p) => {
               if (p.render) {
                 const res = enablePermissions ? hasAccess(instance, p.url, userInfo) : p;
                 return res && !res.disabled ? (
                   <div key={p.url} className={res.isWide ? css(styles.container) : `container container-small`}>
-                    <Route path={`${prefix}${p.url}`} render={props => p.render({ ...props, instance })} />
+                    <Route path={`${prefix}${p.url}`} render={(props) => p.render({ ...props, instance })} />
                   </div>
                 ) : null;
               } else if (p.component) {
