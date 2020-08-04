@@ -1,6 +1,6 @@
 {
-  "name": "react-common",
-  "version": "0.0.2",
+  "name": "@torob/react-common",
+  "version": "0.0.1",
   "description": "Torob's react common components",
   "author": {
     "name": "Torob Developers",
