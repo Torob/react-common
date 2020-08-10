@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { css, StyleSheet } from 'aphrodite';
 
 export default class ClickableText extends Component {
   static get propTypes() {
@@ -16,16 +17,16 @@ export default class ClickableText extends Component {
   static get defaultProps() {
     return {
       innerText: '',
-      onCtrlClick: function() {
+      onCtrlClick: function () {
         return undefined;
       },
-      onShiftClick: function() {
+      onShiftClick: function () {
         return undefined;
       },
-      onSimpleClick: function() {
+      onSimpleClick: function () {
         return undefined;
       },
-      onSelection: function() {
+      onSelection: function () {
         return undefined;
       },
       disableTextSelection: false,
@@ -55,7 +56,7 @@ export default class ClickableText extends Component {
         item === '\n' ? (
           <br key={index} />
         ) : (
-          <span key={index} onClick={e => this.handleClickOnWord(e)}>
+          <span key={index} onClick={(e) => this.handleClickOnWord(e)}>
             {item}{' '}
           </span>
         )
@@ -121,8 +122,8 @@ export default class ClickableText extends Component {
 
     return (
       <div
-        className="textHighlightHint"
-        ref={elem => (this.nv = elem)}
+        className={css(styles.highlightHint)}
+        ref={(elem) => (this.nv = elem)}
         style={disableTextSelection ? disabledTextStyle : undefined}
         id={'clickable-inner-text'}
       >
@@ -131,3 +132,9 @@ export default class ClickableText extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  highlightHint: {
+    direction: 'rtl',
+  },
+});

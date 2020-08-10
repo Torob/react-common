@@ -6,8 +6,8 @@ import { FiX, FiAlertTriangle, FiAlertOctagon, FiAlertCircle } from 'react-icons
 import { IoMdCheckmarkCircle } from 'react-icons/io';
 import { colors } from './torobStyles';
 
-const Toast = ({ children, variant, onDismiss, rounded }) => {
-  const renderVariantIcon = variant => {
+const Toast = ({ children, variant, onDismiss, rounded = true }) => {
+  const renderVariantIcon = (variant) => {
     switch (variant) {
       case 'error':
         return <FiAlertTriangle />;
