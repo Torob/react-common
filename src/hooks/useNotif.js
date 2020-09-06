@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
-import Toast from './toast';
+import Toast from '../components/toast';
 
 const context = React.createContext();
 
