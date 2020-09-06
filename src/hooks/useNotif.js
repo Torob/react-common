@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
-import Toast from '../components/toast';
+import Toast from './toast';
 
 const context = React.createContext();
 
-const ToastContainer = props => <div className={css(styles.toastContainer)} {...props} />;
+const ToastContainer = (props) => <div className={css(styles.toastContainer)} {...props} />;
 
 const styles = StyleSheet.create({
   toastContainer: {
@@ -17,24 +17,25 @@ const styles = StyleSheet.create({
   },
 });
 
-let toastCount = 0;
-
 export function NotificationProvider({ children }) {
   const [toasts, setToasts] = useState([]);
+  const toastCount = useRef(0);
 
-  const add = (content, variant = 'hint', autoClose = true, closeTime = 2000) => {
-    const id = toastCount++;
-    const toast = { content, id, variant };
-    setToasts([...toasts, toast]);
-    autoClose && setTimeout(() => remove(id), closeTime);
-  };
-
-  const remove = id => {
-    const newToasts = toasts.filter(t => t.id !== id);
+  const add = useCallback(
+    (content, variant = 'hint', autoClose = true, closeTime = 2000) => {
+      const id = toastCount.current++;
+      const toast = { content, id, variant };
+      setToasts((oldState) => [...oldState, toast]);
+      autoClose && setTimeout(() => remove(id), closeTime);
+    },
+    [setToasts, toastCount.current]
+  );
+  const remove = (id) => {
+    const newToasts = toasts.filter((t) => t.id !== id);
     setToasts(newToasts);
   };
 
-  const onDismiss = id => () => remove(id);
+  const onDismiss = (id) => () => remove(id);
 
   return (
     <context.Provider value={{ add, remove }}>
