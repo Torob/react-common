@@ -145,7 +145,7 @@ const Navigation = ({
               onInstanceChange={handleInstanceChange}
               renderShopSelect={renderShopSelect}
               location={location}
-              items={enablePermissions ? items.map((i) => hasAccess(instance, i.url, userInfo)) : items}
+              items={enablePermissions ? items.filter((i) => hasAccess(instance, i.url, userInfo)) : items}
               footerComponent={footerComponent}
             />
           </div>
