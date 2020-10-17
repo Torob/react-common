@@ -3,11 +3,11 @@ import { StyleSheet, css } from 'aphrodite';
 import PropTypes from 'prop-types';
 
 const Divider = ({ orientation }) => {
-  return <div className={css(orientation === 'vertical' ? styles.vertical : styles.horizontal)}></div>;
+  return <div className={css(orientation === 'vertical' ? styles.vertical : styles.horizontal)}/>;
 };
 
 Divider.propTypes = {
-  orientation: PropTypes.bool,
+  orientation: PropTypes.string,
 };
 
 Divider.defaultProps = {
