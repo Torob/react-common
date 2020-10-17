@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { StyleSheet, css } from 'aphrodite';
 
 import Toast from '../components/toast';
@@ -19,16 +19,15 @@ const styles = StyleSheet.create({
 
 export function NotificationProvider({ children }) {
   const [toasts, setToasts] = useState([]);
-  const toastCount = useRef(0);
 
   const add = useCallback(
     (content, variant = 'hint', autoClose = true, closeTime = 2000) => {
-      const id = toastCount.current++;
+      const id = `toast-${Math.random().toString().substr(2, 5)}`;
       const toast = { content, id, variant };
       setToasts((oldState) => [...oldState, toast]);
       autoClose && setTimeout(() => remove(id), closeTime);
     },
-    [setToasts, toastCount.current]
+    [setToasts]
   );
   const remove = (id) => {
     const newToasts = toasts.filter((t) => t.id !== id);
