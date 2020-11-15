@@ -19,10 +19,9 @@ class Analytic {
     return this._instance;
   }
 
-  setUser({ id, isStaff }) {
+  setUser({ id, isStaff, email }) {
     this.amp.setUserId(id);
-
-    const identify = new amplitude.Identify().set('is_staff', isStaff);
+    const identify = new amplitude.Identify().set('is_staff', isStaff).set('email', email);
     this.amp.identify(identify);
   }
 
@@ -32,7 +31,8 @@ class Analytic {
     var identify = new amplitude.Identify()
       .unset('instance_id')
       .unset('instance_type')
-      .unset('is_staff');
+      .unset('is_staff')
+      .unset('email');
     this.amp.identify(identify);
   }
 
