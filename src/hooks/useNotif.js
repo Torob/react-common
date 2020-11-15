@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
     bottom: 50,
     width: '320px',
     minHeight: '48px',
+    ':empty': {
+      display: 'none'
+    }
   },
 });
 
