@@ -38,7 +38,7 @@
   "dependencies": {
     "amplitude-js": "^7.1.0",
     "aphrodite": "^2.4.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "css-loader": "^4.2.0",
     "html-webpack-include-assets-plugin": "^2.0.0",
     "html-webpack-plugin": "^4.3.0",
